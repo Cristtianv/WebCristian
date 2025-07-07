@@ -20,6 +20,9 @@ const { tittle } = Astro.props;
 		<title>{tittle}</title>
 	</head>
 	<body>
+		<div
+			class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+		</div>
 		<Header />
 		<slot />
 	</body>
@@ -30,14 +33,22 @@ const { tittle } = Astro.props;
 		color-scheme: ligth dark;
 	}
 	html {
-		font-family: 'Onest Variable', sans-serif;
+		font-family: "Onest Variable", sans-serif;
 	}
 	body {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		align-items: center;
 		background-color: #072150;
 		color: bisque;
 		height: 100vh;
+		scroll-behavior: smooth;
+
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 </style>
